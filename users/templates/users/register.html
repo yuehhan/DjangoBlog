@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class= "content-section">
+        <form method='POST'>
+            {% csrf_token %}
+            <!--This is for additional security, form won't work without csrf-->
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                <!--mb-4 stands for 'margin bottom'-->
+                {{ form|crispy }}
+                <!--.as_p makes it neater, adds spacing-->
+                <!--after install crispy forms, we can just filter-->
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                <!--bootstrap class of btn-->
+            </div>
+        </form>
+        <!--pt-3 stands for padding top-->
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="mf-2" href="{% url 'login' %}">Sign In</a>
+            </small>>
+        </div>
+    </div>
+{% endblock content %}
