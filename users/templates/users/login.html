@@ -1,30 +1,24 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class= "content-section">
-        <form method='POST'>
+    <div class="content-section">
+        <form method="POST">
             {% csrf_token %}
-            <!--This is for additional security, form won't work without csrf-->
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In </legend>
-                <!--mb-4 stands for 'margin bottom'-->
+                <legend class="border-bottom mb-4">Log In</legend>
                 {{ form|crispy }}
-                <!--.as_p makes it neater, adds spacing-->
-                <!--after install crispy forms, we can just filter-->
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Log In</button>
+                <button class="btn btn-outline-info" type="submit">Login</button>
                 <small class="text-muted ml-2">
                     <a href="{% url 'password_reset' %}">Forgot Password?</a>
                 </small>
-                
             </div>
         </form>
-        <!--pt-3 stands for padding top-->
         <div class="border-top pt-3">
             <small class="text-muted">
-                Need An Account? <a class="mf-2" href="{% url 'register' %}">Sign Up</a>
-            </small>>
+                Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+            </small>
         </div>
     </div>
 {% endblock content %}
